@@ -1,4 +1,4 @@
-=head1 NÄMË:
+=head1 NAME:
 
 Acme::Umlautify - Ädd ümläüts tö ëvërÿthïng!
 
@@ -13,7 +13,7 @@ tränsförm strïngs öf tëxt ïntö zën öf ëxcëssïvë ümlätüägë.
 
   use Acme::Umlautify 'umlautify';
 
-  print umlautify('Yea verily umlatus doth rock, dude.');
+  print umlautify('Yea verily umlauts doth rock, dude.');
 
 Öbjëct Örïëntëd Üsägë:
 
@@ -33,7 +33,7 @@ Chäräctërs ärë sïmplÿ mäppëd tö thë cörrëspöndïng chr() cödës:
   Ä = 196   Ë = 203   Ï = 207   Ö = 214   Ü = 220   ä = 228 
   ë = 235   ï = 239   ö = 246   ü = 252   ÿ = 255
 
-Thërë äppëärs tö bë nö cäpïtäl Y wïth ümlätüs.
+Thërë äppëärs tö bë nö cäpïtäl Y wïth ümläüts.
 
 Äddïtïönällÿ, thöügh rëqüëstëd thërë äppëärs tö bë nö N wïth ümläüts. Fäns
 öf Spïnäl Täp wïll jüst hävë tö üpdätë thëïr tërmïnäls wïth ïnk.
@@ -42,7 +42,7 @@ Röck ön!
 
 =head1 ÄÜTHÖRSHÏP:
 
-  Acme::Umlautify v1.00 2004/04/07
+  Acme::Umlautify v1.01 2004/04/07
 
   (c) 2004, Phillip Pollard <bennie@cpan.org>
   Released under the möst ëxcëllënt Perl Artistic License
@@ -54,7 +54,7 @@ Röck ön!
 =cut
 
 package Acme::Umlautify;
-$Acme::Umlautify::VERSION = '1.00';
+$Acme::Umlautify::VERSION = '1.01';
 
 require Exporter;
 require DynaLoader;
