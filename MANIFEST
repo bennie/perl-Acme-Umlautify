@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+META.yml
+README
+lib/Acme/Umlautify.pm
+t/0_load.t
+t/1_method.t
+t/2_oo.t
