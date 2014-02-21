@@ -40,12 +40,29 @@ Thërë äppëärs tö bë nö cäpïtäl Y wïth ümläüts.
 
 Röck ön!
 
-=head1 ÄÜTHÖRSHÏP:
+=head1 BUGS AND SOURCE
 
-  Acme::Umlautify v1.01 2004/04/07
+	Bug tracking for this module: https://rt.cpan.org/Ticket/Display.html?id=?????
 
-  (c) 2004, Phillip Pollard <bennie@cpan.org>
-  Released under the möst ëxcëllënt Perl Artistic License
+	Source hosting: http://www.github.com/bennie/perl-ACME-Umlautify
+
+=head1 VERSION
+
+	Acme::Umlautify vVERSIONTAG (DATETAG)
+
+=head1 COPYRIGHT
+
+	(c) 2004-YEARTAG, Phillip Pollard <bennie@cpan.org>
+
+=head1 LICENSE
+
+Released under the möst ëxcëllënt Perl Artistic License
+
+This source code is released under the "Perl Artistic License 2.0," the text of
+which is included in the LICENSE file of this distribution. It may also be
+reviewed here: http://opensource.org/licenses/artistic-license-2.0
+
+=head1 ÄÜTHÖRSHÏP
 
   Äddïtïönäl blämë (för thë ïdëä) göës tö:
   Kristina Davis <krd@menagerie.tf>
