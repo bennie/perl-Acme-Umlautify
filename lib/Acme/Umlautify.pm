@@ -42,7 +42,7 @@ Röck ön!
 
 =head1 BUGS AND SOURCE
 
-	Bug tracking for this module: https://rt.cpan.org/Ticket/Display.html?id=?????
+	Bug tracking for this module: https://rt.cpan.org/Dist/Display.html?Name=ACME-Umlautify
 
 	Source hosting: http://www.github.com/bennie/perl-ACME-Umlautify
 
