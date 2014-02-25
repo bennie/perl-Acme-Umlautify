@@ -2,7 +2,7 @@ Changes
 LICENSE
 Makefile.PL
 MANIFEST
-META.yml
+META.json
 README
 lib/Acme/Umlautify.pm
 t/0_load.t
