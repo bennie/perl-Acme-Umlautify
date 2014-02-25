@@ -25,7 +25,7 @@ no_index:
         - t
         - inc
 provides:
-    ACME::Umlautify:
+    Acme::Umlautify:
         file: lib/Acme/Umlautify.pm
         version: VERSIONTAG
 generated_by:       ExtUtils::MakeMaker version 6.56
