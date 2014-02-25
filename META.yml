@@ -1,7 +1,7 @@
 --- #YAML:1.0
-name:               Acme-Umlautify
-version:            VERSIONTAG
-abstract:           Æ’dd Â¸mlâ€°Â¸ts tË† ÃŽvÃŽrË‡thÃ”ng! 
+name:		Acme-Umlautify
+version:	VERSIONTAG
+abstract:	Ädd ümläüts tö ëvërÿthïng!
 author:
     - Phil Pollard <bennie@cpan.org>
 license:            artistic_2
