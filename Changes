@@ -1,5 +1,10 @@
 Revision history for Perl extension Acme::Umlautify.
 
+VERSIONTAG  DATETAG
+
+	Updating meta information
+	Added LICENSE information into the distribution
+	
 1.01  2004/04/07
 
 	Corrected spelling errors in the documentation.
