@@ -2,6 +2,11 @@ Revision history for Perl extension Acme::Umlautify.
 
 VERSIONTAG  DATETAG
 
+	Now auto-generating META.json and META.yml
+	Corrected in-module version tagging
+
+1.03  2014/02/25
+
 	Corrected miscapitalization of 'ACME' in module meta data
 	Updated to new build script with auto-generated meta data
 
