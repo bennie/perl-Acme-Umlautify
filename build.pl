@@ -67,7 +67,7 @@ open MAKEFILE, '>', 'Makefile.PL';
 print MAKEFILE "use ExtUtils::MakeMaker;
 
 WriteMakefile(
-  ABSTRACT => '$abstract',
+  ABSTRACT => \"$abstract\",
   AUTHOR   => '$author',
   LICENSE  => '$license',
   NAME     => '$module',
