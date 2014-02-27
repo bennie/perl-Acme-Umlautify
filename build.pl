@@ -36,8 +36,9 @@ $require_text =~ s/;$//;
 ### Bump the version if asked
 
 for my $arg (@ARGV) {
-  version_bump()  and last if $arg eq '--bump';
-  version_retag() and last if $arg eq '--retag';
+  version_bump() and last if $arg eq '--bump';
+  if ( $arg eq '--retag'   ) { version_retag();  exit; }
+  if ( $arg eq '--version' ) { version_crrent(); exit; }
 }
 
 ### External data
@@ -218,8 +219,7 @@ sub version_next {
 }
 
 sub version_retag {
-  my $tag - version_current();
-  print "\nDeleting current tag ...\n";
+  my $tag = version_current();
   system("git tag -d $tag");
   system("git push origin :refs/tags/$tag");
   system("git push github :refs/tags/$tag");
@@ -227,5 +227,4 @@ sub version_retag {
   system("git tag -a $tag -m 'Version $tag'");
   system("git push --tags origin master");
   system("git push --tags github master");
-  exit;
 }
