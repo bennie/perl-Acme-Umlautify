@@ -33,7 +33,13 @@ my $require_text = Dumper(\%requires);
 $require_text =~ s/\$VAR1 = //;
 $require_text =~ s/;$//;
 
-### External grab
+### Bump the version if asked
+
+for my $arg (@ARGV) {
+  version_bump() and last if $arg eq '--bump';
+}
+
+### External data
 
 my $version = version_current();
 my $date    = `date '+%Y/%m/%d'`;
@@ -154,20 +160,20 @@ unless ( -f $distdir.'/META.json' ) {
 
 ### Updating the tags
 
-print "\nUpdating DATETAG -> $date\n";
-print `find $distdir -type f | xargs perl -p -i -e "s|DATETAG|$date|g"`;
-print "Updating VERSIONTAG -> $version\n";
-print `find $distdir -type f | xargs perl -p -i -e "s|VERSIONTAG|$version|g"`;
-print "Updating YEARTAG -> $year\n";
-print `find $distdir -type f | xargs perl -p -i -e "s|YEARTAG|$year|g"`;
+print  "\nUpdating DATETAG -> $date\n";
+system "find $distdir -type f | xargs perl -p -i -e 's|DATETAG|$date|g'";
+print  "Updating VERSIONTAG -> $version\n";
+system "find $distdir -type f | xargs perl -p -i -e 's|VERSIONTAG|$version|g'";
+print  "Updating YEARTAG -> $year\n";
+system "find $distdir -type f | xargs perl -p -i -e 's|YEARTAG|$year|g'";
 print "\n";
 
 ### Build the tarball
 
-unlink($distdir.'.tar') if -f $distdir.'.tar';
+unlink($distdir.'.tar')    if -f $distdir.'.tar';
 unlink($distdir.'.tar.gz') if -f $distdir.'.tar.gz';
 
-print `tar cvf $distdir.tar $distdir && gzip --best $distdir.tar`;
+system "tar cvf $distdir.tar $distdir && gzip --best $distdir.tar";
 
 ### Cleanup
 
@@ -180,18 +186,17 @@ print "\nDONE!\n";
 ### Subroutines
 
 sub version_bump {
-  my $version = &version();
-  chomp($version);
-  my $next_version = &next($version);
+  my $version = version_current();
+  my $next_version = version_next($version);
   print "Bumping version from $version to $next_version\n";
   system("git tag -a $next_version -m 'Version $next_version'");
   system("git push --tags origin master");
   system("git push --tags github master");
+  our $version = $next_version;
 }
 
 sub version_next {
   my $old = shift @_;
-  chomp($old);
   $old =~ /^(.+)\.(.+?)$/;
   my ($main,$sub) = ($1,$2);
   my $length = length($sub);
