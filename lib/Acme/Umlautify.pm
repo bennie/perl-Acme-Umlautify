@@ -71,7 +71,7 @@ reviewed here: http://opensource.org/licenses/artistic-license-2.0
 =cut
 
 package Acme::Umlautify;
-$Acme::Umlautify::VERSION = '1.01';
+$Acme::Umlautify::VERSION = 'VERSIONTAG';
 
 require Exporter;
 require DynaLoader;
