@@ -2,6 +2,7 @@
 
 require CPAN::Meta::YAML; # Do both YAML and JSON
 
+use Data::Dumper;
 use CPAN::Meta;
 use strict;
 
@@ -17,13 +18,20 @@ my $description = "A module that helps you ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!"
 
 my $perl_ver = '5.006';
 
-my %requires = ( 'Test' => '0' );
-my %build    = ( 'Test' => '0' );
+my %requires = ( 'perl' => $perl_ver, 'Test' => '0' );
 
 ### Post config
 
 my $path_chunk = $module;
-$module =~ s/::/-/g;
+$path_chunk =~ s/::/-/g;
+
+my $bug  = 'https://rt.cpan.org/Dist/Display.html?Name='.$path_chunk;
+my $repo = 'http://github.com/bennie/perl-' . $path_chunk;
+my $git  = 'git://github.com/bennie/perl-'.$path_chunk.'.git';
+
+my $require_text = Dumper(\%requires);
+$require_text =~ s/\$VAR1 = //;
+$require_text =~ s/;$//;
 
 ### External grab
 
@@ -31,29 +39,83 @@ my $version = `./version.pl`;
 my $build   = `./version.pl --build`;
 my $date    = `date '+%Y/%m/%d'`;
 my $year    = `date '+%Y'`;
-my $tardir  = $path_chunk . '-' . $version;
+my $distdir = $path_chunk .'-' . $version;
 
 chomp $version;
 chomp $build;
 chomp $date;
 chomp $year;
-chomp $tardir;
+chomp $distdir;
 
 print "
 Version : $version
 Build   : $build
 Date    : $date
 Year    : $year
-Tar Dir : $tardir
+Dist    : $distdir
+
 ";
 
-### Build the Meta data
+### Write Makefile.PL
 
-my $distmeta = {
+open MAKEFILE, '>', 'Makefile.PL';
+
+print MAKEFILE "use ExtUtils::MakeMaker;
+
+WriteMakefile(
+  ABSTRACT => '$abstract',
+  AUTHOR   => '$author',
+  LICENSE  => '$license',
+  NAME     => '$module',
+  VERSION  => '$version',
+
+  PREREQ_PM => $require_text,
+
+  ( \$ExtUtils::MakeMaker::VERSION < 6.46
+        ? ()
+        : ( META_MERGE => {
+                requires  => {perl => '$perl_ver'},
+                resources => {
+                    # homepage => 'http://FIXME.org',
+                    # license  => 'http://dev.perl.org/licenses/',
+                    # MailingList => 'http://FIXME',
+                    repository => {
+                        type => 'git',
+                        url  => '$git',
+                        web  => '$repo',
+                    },
+                    bugtracker => {
+                        # mailto => '...',
+                        web => '$bug',
+                    },
+
+                },
+                no_index => {directory => [qw/t/]},
+            },
+            META_ADD => {
+                build_requires     => {},
+                configure_requires => {}
+            },
+        )
+    )
+
+);";
+
+close MAKEFILE;
+
+### Build the distribution directory
+
+print `perl Makefile.PL`;
+print `make distmeta`;
+
+### Build META.json
+
+unless ( -f $distdir.'/META.json' ) {
+  my $distmeta = {
 
     # Required
     abstract => $abstract,
-    author   => [ $author  ],
+    author   => [ $author ],
     license  => [ $license ],
     name     => $path_chunk,
     version  => $version,
@@ -69,7 +131,7 @@ my $distmeta = {
 
     prereqs => {
       runtime => {
-        requires => { 'perl' => $perl_ver },
+        requires => \%requires,
         recommends => { },
       },
       build => {
@@ -78,68 +140,45 @@ my $distmeta = {
     },
     resources => {
       license    => [ 'http://dev.perl.org/licenses/' ],
-      bugtracker => { web => 'https://rt.cpan.org/Dist/Display.html?Name='.$path_chunk },
-      repository => { web => 'http://github.com/bennie/perl-' . $path_chunk , type => 'git', url => 'git://github.com/bennie/perl-'.$path_chunk.'.git' },
+      bugtracker => { web => $bug },
+      repository => { web => $repo , type => 'git', url => $git },
     },
-};
+  };
 
-my $meta = CPAN::Meta->create($distmeta);
-$meta->save('META.json');
+  my $meta = CPAN::Meta->create($distmeta);
+  print "Generating META.json on my own.\n";
+  $meta->save($distdir.'/META.json');
 
-$distmeta = {
+  print "Adding META.json to the MANIFEST\n";
+  open MANIFEST, '>>', $distdir.'/MANIFEST';
+  print MANIFEST "META.json\nMakefile.PL";
+  close MANIFEST;
 
-    # Required
-    abstract => $abstract,
-    author   => [ $author  ],
-    license  => $license,
-    name     => $path_chunk,
-    version  => $version,
-
-    # optional
-    dynamic_config => 1,
-    generated_by => "CPAN::Meta version $CPAN::Meta::VERSION",
-    'meta-spec' => { version => '1.4', url => 'http://module-build.sourceforge.net/META-spec-v1.4.html' },
-
-    requires => { 'perl' => $perl_ver, %requires },
-    build_requires => \%build,
-
-};
-
-my $yaml = CPAN::Meta->create($distmeta);
-$yaml->save('META.yml');
-
-### Build the distribution
-
-if ( -d 'build' ) {
-  print "Cleaning the build directory:\n";
-  print `rm -rfv build`;
-  print "\n";
 }
 
-print "Creating the build directory:\n";
-print `mkdir -pv "build/$tardir"`;
+### Updating the tags
+
+print "\nUpdating DATETAG -> $date\n";
+print `find $distdir -type f | xargs perl -p -i -e "s|DATETAG|$date|g"`;
+print "Updating VERSIONTAG -> $version\n";
+print `find $distdir -type f | xargs perl -p -i -e "s|VERSIONTAG|$version|g"`;
+print "Updating BUILDTAG -> $build\n";
+print `find $distdir -type f | xargs perl -p -i -e "s|BUILDTAG|$build|g"`;
+print "Updating YEARTAG -> $year\n";
+print `find $distdir -type f | xargs perl -p -i -e "s|YEARTAG|$year|g"`;
 print "\n";
 
-print "Copying files:\n";
-print `rsync -av --files-from=MANIFEST ./ "build/$tardir/"`;
-print "\n";
+### Build the tarball
 
-print "Updating date tags: DATETAG -> $date\n";
-print `find build -type f xargs perl -p -i -e "s|DATETAG|$date|g"`;
-print "Updating version tags: VERSIONTAG -> $version\n";
-print `find build -type f | xargs perl -p -i -e "s|VERSIONTAG|$version|g"`;
-print "Updating build tags: BUILDTAG -> $build\n";
-print `find build -type f | xargs perl -p -i -e "s|BUILDTAG|$build|g"`;
-print "Updating year tags: YEARTAG -> $year\n";
-print `find build -type f | xargs perl -p -i -e "s|YEARTAG|$year|g"`;
-print "\n";
+unlink($distdir.'.tar') if -f $distdir.'.tar';
+unlink($distdir.'.tar.gz') if -f $distdir.'.tar.gz';
 
-print "Building the tar file:\n";
-print `cd build && tar czvf $tardir.tar.gz $tardir`;
-print "\n";
+print `tar cvf $distdir.tar $distdir && gzip --best $distdir.tar`;
 
-print "Removing local META files:\n";
-print `rm -v META.json META.yml`;
-print "\n";
+### Cleanup
 
-print "DONE!\n";
+unlink('Makefile');
+unlink('Makefile.old');
+unlink('Makefile.PL');
+
+print "\nDONE!\n";
