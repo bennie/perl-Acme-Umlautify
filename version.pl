@@ -5,7 +5,7 @@
 
 use strict;
 
-my $version; my $build;
+my $version;
 
 if ( $ARGV[0] eq '--bump' ) {
   my $version = &version();
@@ -15,16 +15,8 @@ if ( $ARGV[0] eq '--bump' ) {
   system("git tag -a $next_version -m 'Version $next_version'");
   system("git push --tags origin master");
   system("git push --tags github master");
-} elsif ( $ARGV[0] eq '--build' ) {
-  print &build();
 } else {
   print &version();
-}
-
-sub build {
-  $build = `git describe --long | tr '-' ' ' | awk '{ print \$2 }'`
-    unless defined $build and length $build;
-  return $build;
 }
 
 sub next {

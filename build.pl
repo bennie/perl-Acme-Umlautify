@@ -36,20 +36,17 @@ $require_text =~ s/;$//;
 ### External grab
 
 my $version = `./version.pl`;
-my $build   = `./version.pl --build`;
 my $date    = `date '+%Y/%m/%d'`;
 my $year    = `date '+%Y'`;
 my $distdir = $path_chunk .'-' . $version;
 
 chomp $version;
-chomp $build;
 chomp $date;
 chomp $year;
 chomp $distdir;
 
 print "
 Version : $version
-Build   : $build
 Date    : $date
 Year    : $year
 Dist    : $distdir
@@ -162,8 +159,6 @@ print "\nUpdating DATETAG -> $date\n";
 print `find $distdir -type f | xargs perl -p -i -e "s|DATETAG|$date|g"`;
 print "Updating VERSIONTAG -> $version\n";
 print `find $distdir -type f | xargs perl -p -i -e "s|VERSIONTAG|$version|g"`;
-print "Updating BUILDTAG -> $build\n";
-print `find $distdir -type f | xargs perl -p -i -e "s|BUILDTAG|$build|g"`;
 print "Updating YEARTAG -> $year\n";
 print `find $distdir -type f | xargs perl -p -i -e "s|YEARTAG|$year|g"`;
 print "\n";
