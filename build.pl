@@ -38,7 +38,7 @@ $require_text =~ s/;$//;
 for my $arg (@ARGV) {
   version_bump() and last if $arg eq '--bump';
   if ( $arg eq '--retag'   ) { version_retag();  exit; }
-  if ( $arg eq '--version' ) { version_crrent(); exit; }
+  if ( $arg eq '--version' ) { print version_current(), "\n"; exit; }
 }
 
 ### External data
