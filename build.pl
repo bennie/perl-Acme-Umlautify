@@ -35,12 +35,11 @@ $require_text =~ s/;$//;
 
 ### External grab
 
-my $version = `./version.pl`;
+my $version = version_current();
 my $date    = `date '+%Y/%m/%d'`;
 my $year    = `date '+%Y'`;
 my $distdir = $path_chunk .'-' . $version;
 
-chomp $version;
 chomp $date;
 chomp $year;
 chomp $distdir;
@@ -177,3 +176,37 @@ unlink('Makefile.old');
 unlink('Makefile.PL');
 
 print "\nDONE!\n";
+
+### Subroutines
+
+sub version_bump {
+  my $version = &version();
+  chomp($version);
+  my $next_version = &next($version);
+  print "Bumping version from $version to $next_version\n";
+  system("git tag -a $next_version -m 'Version $next_version'");
+  system("git push --tags origin master");
+  system("git push --tags github master");
+}
+
+sub version_next {
+  my $old = shift @_;
+  chomp($old);
+  $old =~ /^(.+)\.(.+?)$/;
+  my ($main,$sub) = ($1,$2);
+  my $length = length($sub);
+  $sub++;
+  if ( length($sub) > $length ) {
+    warn "WARNING: Version length now larger! (From $length digits to ", length($sub), ")\n";
+    $length = length($sub);
+  }
+  return sprintf('%s.%0'.$length.'d',$main,$sub);
+}
+
+sub version_current {
+  our $version;
+  return $version if defined $version and length $version;
+  $version = `git describe --long | tr '-' ' ' | awk '{ print \$1 }'`;
+  chomp $version;
+  return $version;
+}
