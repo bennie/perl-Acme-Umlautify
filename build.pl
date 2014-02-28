@@ -18,7 +18,7 @@ my $description = "A module that helps you ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!"
 
 my $perl_ver = '5.006';
 
-my %requires = ( 'perl' => $perl_ver, 'Test' => '0' );
+my %requires = ( 'Test' => '0' );
 
 ### Post config
 
@@ -149,6 +149,8 @@ unless ( -f $distdir.'/META.json' ) {
     },
   };
 
+  $distmeta->{prereqs}->{runtime}->{requires}->{perl} = $perl_ver;
+
   my $meta = CPAN::Meta->create($distmeta);
   print "Generating META.json on my own.\n";
   $meta->save($distdir.'/META.json');
@@ -202,6 +204,7 @@ sub version_current {
   return $version if defined $version and length $version;
   $version = `git describe --long | tr '-' ' ' | awk '{ print \$1 }'`;
   chomp $version;
+  $version = '0.01' unless length $version;
   return $version;
 }
 
