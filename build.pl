@@ -8,18 +8,19 @@ use strict;
 
 ### Config
 
-my $module = 'Acme::Umlautify';
+my ($module, $author,  $license, $abstract, $description, $perl_ver, %requires);
 
-my $author  = 'Phil Pollard <bennie@cpan.org>';
-my $license = 'artistic_2';
+open INFILE, '<', 'config.txt' or die "Can't open 'config.txt'";
+my $text = join('',<INFILE>);
+close INFILE;
 
-my $abstract    = 'ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!';
-my $description = "A module that helps you ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!";
+eval $text;
+die $@ if $@;
 
-my $perl_ver = '5.006';
+die "Bad config." unless $module && $author && $license && 
+  $abstract && $description && $perl_ver && %requires;
 
-my %requires = ( 'Test' => '0' );
-
+=head3
 ### Post config
 
 my $path_chunk = $module;
