@@ -1,0 +1,14 @@
+### Config
+
+$module = 'Acme::Umlautify';
+
+$author  = 'Phil Pollard <bennie@cpan.org>';
+$license = 'artistic_2';
+
+$abstract    = 'ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!';
+$description = "A module that helps you ƒdd ¸ml‰¸ts tˆ ÎvÎrˇthÔng!";
+
+$perl_ver = '5.006';
+
+%requires = ( 'Test' => '0' );
+
