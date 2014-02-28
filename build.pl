@@ -20,7 +20,6 @@ die $@ if $@;
 die "Bad config." unless $module && $author && $license && 
   $abstract && $description && $perl_ver && %requires;
 
-=head3
 ### Post config
 
 my $path_chunk = $module;
