@@ -4,6 +4,7 @@ Makefile.PL
 MANIFEST
 README
 lib/Acme/Umlautify.pm
-t/0_load.t
-t/1_method.t
-t/2_oo.t
+t/0_pod.t
+t/1_load.t
+t/2_method.t
+t/3_oo.t

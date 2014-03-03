@@ -2,8 +2,11 @@ Revision history for Perl extension Acme::Umlautify.
 
 VERSIONTAG  DATETAG
 
-  Corrected:
-    Makefile.PL improperly called for the prerequisite Perl version.
+	Added a basic POD test
+
+1.05  2014/02/28
+
+	Corrected Makefile.PL improperly calling for a minimum perl version
 
 1.04  2014/02/27
     
