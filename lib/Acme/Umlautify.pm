@@ -1,3 +1,5 @@
+=encoding Latin-1
+
 =head1 NAME:
 
 Acme::Umlautify - Ädd ümläüts tö ëvërÿthïng!
@@ -75,6 +77,8 @@ $Acme::Umlautify::VERSION = 'VERSIONTAG';
 
 require Exporter;
 require DynaLoader;
+
+use warnings;
 use strict;
 
 push our @ISA, 'Exporter';
