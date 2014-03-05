@@ -99,7 +99,6 @@ WriteMakefile(
                      }
                 },
                 release_status => 'stable',
-                requires  => {perl => '$perl_ver'},
                 resources => {
                     repository => {
                         type => 'git',
