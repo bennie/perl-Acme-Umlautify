@@ -2,6 +2,7 @@ Revision history for Perl extension Acme::Umlautify.
 
 VERSIONTAG  DATETAG
 
+	Updated POD and README text
 	Exporting 'umlautify' by default. Just because.
 
 1.06  2014/03/03
