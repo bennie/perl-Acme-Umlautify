@@ -8,6 +8,7 @@ use warnings;
 use strict;
 
 push our @ISA, 'Exporter';
+our @EXPORT = 'umlautify';
 our @EXPORT_OK = 'umlautify';
 
 # What about? 
@@ -88,11 +89,11 @@ Spïnäl Täp wïll jüst hävë tö üpdätë thëïr tërmïnäls wïth ïnk.
 
 	Source hosting: http://www.github.com/bennie/perl-ACME-Umlautify
 
-=head1 VERSION:
+=head1 VËRSÏÖN:
 
 	Acme::Umlautify vVERSIONTAG (DATETAG)
 
-=head1 COPYRIGHT:
+=head1 CÖPYRÏGHT:
 
 	(c) 2004-YEARTAG, Phillip Pollard <bennie@cpan.org>
 

@@ -2,6 +2,10 @@ Revision history for Perl extension Acme::Umlautify.
 
 VERSIONTAG  DATETAG
 
+	Exporting 'umlautify' by default. Just because.
+
+1.06  2014/03/03
+
 	Corrected a POD error: Now declaring encoding as Latin-1.
 	Added a basic POD test
 

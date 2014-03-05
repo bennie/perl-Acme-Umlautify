@@ -1,6 +1,6 @@
 #!/usr/bin/env perl -Ilib
 
-use Acme::Umlautify 'umlautify';
+use Acme::Umlautify;
 use File::Slurp;
 use strict;
 
@@ -152,11 +152,11 @@ $known
 
 $bugs
 
-=head1 VERSION:
+=head1 ".umlautify('VERSION:') . "
 
 $version
 
-=head1 COPYRIGHT:
+=head1 ".umlautify('COPYRIGHT:') . "
 
 $copy
 
