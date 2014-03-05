@@ -1,77 +1,3 @@
-=encoding Latin-1
-
-=head1 NAME:
-
-Acme::Umlautify - Ädd ümläüts tö ëvërÿthïng!
-
-=head1 SYNÖPSÏS:
-
-Acme::Umlautify öffërs böth än öbjëct änd ëxpörtëd mëthöd ïntërfäcë tö 
-tränsförm strïngs öf tëxt ïntö zën öf ëxcëssïvë ümlätüägë.
-
-=head1 ÜSÄGË:
-
-Ëxpörtëd Mëthöd Üsägë:
-
-  use Acme::Umlautify 'umlautify';
-
-  print umlautify('Yea verily umlauts doth rock, dude.');
-
-Öbjëct Örïëntëd Üsägë:
-
-  use Acme::Umlautify;
-
-  my $au = new Acme::Umlautify;
-
-  print $au->do('"Motley Crue" could have had way more umlauts, dude.');
-
-Ïn ëïthër cäsë, gïvën än ärräÿ öf ïnpüt strïngs, ä cörrëspöndïng ärräÿ ïs
-rëtürnëd löökïng fär cöölër. Ön ä scälë öf önë tö tën ït's än ËLËVËN.
-
-=head1 KNÖWN ÏSSÜËS:
-
-Chäräctërs ärë sïmplÿ mäppëd tö thë cörrëspöndïng chr() cödës:
-
-  Ä = 196   Ë = 203   Ï = 207   Ö = 214   Ü = 220   ä = 228 
-  ë = 235   ï = 239   ö = 246   ü = 252   ÿ = 255
-
-Thërë äppëärs tö bë nö cäpïtäl Y wïth ümläüts.
-
-Äddïtïönällÿ, thöügh rëqüëstëd thërë äppëärs tö bë nö N wïth ümläüts. Fäns
-öf Spïnäl Täp wïll jüst hävë tö üpdätë thëïr tërmïnäls wïth ïnk.
-
-Röck ön!
-
-=head1 BUGS AND SOURCE
-
-	Bug tracking for this module: https://rt.cpan.org/Dist/Display.html?Name=ACME-Umlautify
-
-	Source hosting: http://www.github.com/bennie/perl-ACME-Umlautify
-
-=head1 VERSION
-
-	Acme::Umlautify vVERSIONTAG (DATETAG)
-
-=head1 COPYRIGHT
-
-	(c) 2004-YEARTAG, Phillip Pollard <bennie@cpan.org>
-
-=head1 LICENSE
-
-Released under the möst ëxcëllënt Perl Artistic License
-
-This source code is released under the "Perl Artistic License 2.0," the text of
-which is included in the LICENSE file of this distribution. It may also be
-reviewed here: http://opensource.org/licenses/artistic-license-2.0
-
-=head1 ÄÜTHÖRSHÏP
-
-  Äddïtïönäl blämë (för thë ïdëä) göës tö:
-  Kristina Davis <krd@menagerie.tf>
-  Chip Salzenberg <chip@pobox.com>
-
-=cut
-
 package Acme::Umlautify;
 $Acme::Umlautify::VERSION = 'VERSIONTAG';
 
@@ -111,3 +37,77 @@ sub umlautify {
   my @out = map { join '', map { $_=chr($map{$_}) if $map{$_}; $_ } split '', $_; } @_;
   return wantarray ? @out : $out[0];
 }
+
+__END__
+
+=encoding Latin-1
+
+=head1 NAME:
+
+Acme::Umlautify - Ädd Ümläüts tö ëvërÿthïng!
+
+=head1 SYNÖPSÏS:
+
+Acme::Umlautify öffërs böth än öbjëct-örïëntëd ïntërfäcë änd än ëxpörtëd mëthöd
+tö tränsförm strïngs öf tëxt ïntö thë zën öf ëxcëssïvë ümlätäügë.
+
+=head1 ÜSÄGË:
+
+Ëxpörtëd Mëthöd Üsägë:
+
+  use Acme::Umlautify 'umlautify';
+
+  print umlautify('Yea verily umlauts doth rock, dude.');
+
+Öbjëct-Örïëntëd Üsägë:
+
+  use Acme::Umlautify;
+
+  my $au = new Acme::Umlautify;
+
+  print $au->do('"Motley Crue" could have had way more umlauts, dude.');
+
+Ïn ëïthër cäsë, gïvën än ärräÿ öf ïnpüt strïngs, ä cörrëspöndïng ärräÿ ïs 
+rëtürnëd löökïng fär cöölër. Ön ä scälë öf önë tö tën ït's än ËLËVËN!
+
+=head1 KNÖWN ÏSSÜËS:
+
+Chäräctërs ärë sïmplÿ mäppëd tö thë cörrëspöndïng chr() cödës:
+
+  A = 196   e = 203   i = 207   o = 214   U = 220   A = 228 
+  e = 235   i = 239   o = 246   U = 252   Y = 255
+
+Thërë äppëärs tö bë nö cäpïtäl Y wïth ümläüts.
+
+Äddïtïönällÿ, thöügh rëqüëstëd, thërë äppëärs tö bë nö N wïth ümläüts. Fäns öf 
+Spïnäl Täp wïll jüst hävë tö üpdätë thëïr tërmïnäls wïth ïnk.
+
+=head1 BÜGS ÄND SÖÜRCË:
+
+	Bug tracking for this module: https://rt.cpan.org/Dist/Display.html?Name=ACME-Umlautify
+
+	Source hosting: http://www.github.com/bennie/perl-ACME-Umlautify
+
+=head1 VERSION:
+
+	Acme::Umlautify vVERSIONTAG (DATETAG)
+
+=head1 COPYRIGHT:
+
+	(c) 2004-YEARTAG, Phillip Pollard <bennie@cpan.org>
+
+=head1 LICENSE:
+
+Released under the möst ëxcëllënt Perl Artistic License
+
+This source code is released under the "Perl Artistic License 2.0," the text of
+which is included in the LICENSE file of this distribution. It may also be
+reviewed here: http://opensource.org/licenses/artistic-license-2.0
+
+=head1 ÄÜTHÖRSHÏP:
+
+Äddïtïönäl blämë (för thë ïdëä) göës tö:
+
+  Kristina Davis <krd@menagerie.tf>
+  Chip Salzenberg <chip@pobox.com>
+
