@@ -1,6 +1,7 @@
 #!/usr/bin/env perl -Ilib
 
 use Acme::Umlautify 'umlautify';
+use File::Slurp;
 use strict;
 
 my $abstract =  umlautify('Add Umlauts to everything!');
@@ -51,6 +52,8 @@ my $author = umlautify('Additional blame (for the idea) goes to:') . '
 
   Kristina Davis <krd@menagerie.tf>
   Chip Salzenberg <chip@pobox.com>';
+
+### README
 
 print "Writing README\n";
 
@@ -108,9 +111,62 @@ $copy
 $license
 
 ================================================================================
-".umlautify('KAUTHORSHIP:')."
+".umlautify('AUTHORSHIP:')."
 ================================================================================
 
 $author
 ";
 close README;
+
+### POD
+
+print "Writing the POD\n";
+
+my $module = read_file('lib/Acme/Umlautify.pm');
+die "Can't find end token" unless $module =~ /^(.+__END__)/ms;
+$module = $1;
+
+open OUTFILE, '>', 'lib/Acme/Umlautify.pm';
+print OUTFILE $module;
+print OUTFILE "
+
+=encoding Latin-1
+
+=head1 NAME:
+
+Acme::Umlautify - $abstract
+
+=head1 " . umlautify('SYNOPSIS:') . "
+
+$synopsis
+
+=head1 " . umlautify('USAGE:') . "
+
+$usage
+
+=head1 ".umlautify('KNOWN ISSUES:') . "
+
+$known
+
+=head1 ".umlautify('BUGS AND SOURCE:') . "
+
+$bugs
+
+=head1 VERSION:
+
+$version
+
+=head1 COPYRIGHT:
+
+$copy
+
+=head1 LICENSE:
+
+$license
+
+=head1 ".umlautify('AUTHORSHIP:')."
+
+$author
+
+";
+close OUTFILE;
