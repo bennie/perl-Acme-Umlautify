@@ -2,6 +2,16 @@ Revision history for Perl extension Acme::Umlautify.
 
 VERSIONTAG  DATETAG
 
+	Moving to UTF (as opposed to Latin-1) thanks to an emailed suggestion
+		by Jeremy Mates <jmates@uw.edu> - this literally allows the
+		addition of umlatus to everything, including spaces.
+
+	Almost concurrently, Nick Wellnhofer <nwellnhof@cpan.org> opened 
+		RT #93530 which suggested a UTF solution to the lack of
+		umlauts for Latin lower-case y.
+
+1.06  2014/03/03
+
 	Updated POD and README text
 	Exporting 'umlautify' by default. Just because.
 
