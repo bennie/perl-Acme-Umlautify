@@ -1,5 +1,5 @@
-use Test;
-BEGIN { plan tests => 2 };
+use Test::Simple tests => 2;
+use strict;
 
 use Acme::Umlautify;
 ok(1);

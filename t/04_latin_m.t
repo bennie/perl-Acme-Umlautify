@@ -1,8 +1,6 @@
 use Acme::Umlautify 'umlautify';
-use Test;
+use Test::Simple tests => 3;
 use strict;
-
-BEGIN { plan tests => 3 }; 
 
 ok(umlautify_latin('AEIOUYaeiouy') eq 'ΔΛΟΦάYδλοφόÿ');
 

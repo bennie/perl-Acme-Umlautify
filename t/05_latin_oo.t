@@ -1,8 +1,6 @@
 use Acme::Umlautify;
-use Test;
+use Test::Simple tests => 4;
 use strict;
-
-BEGIN { plan tests => 4 }; 
 
 my $au = new Acme::Umlautify;
 
