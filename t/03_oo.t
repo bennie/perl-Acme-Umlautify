@@ -7,7 +7,8 @@ my $au = new Acme::Umlautify;
 
 ok($au);
 
-ok($au->do('This is a test of the emergency umlaut system!') eq 'T̈ḧïs̈ ïs̈ ä ẗës̈ẗ öf̈ ẗḧë ëm̈ër̈g̈ën̈c̈ÿ üm̈l̈äüẗ s̈ÿs̈ẗëm̈!','String test');
+my $check = $au->do('This is a test of the emergency umlaut system!');
+ok($check eq 'T̈ḧïs̈ ïs̈ ä ẗës̈ẗ öf̈ ẗḧë ëm̈ër̈g̈ën̈c̈ÿ üm̈l̈äüẗ s̈ÿs̈ẗëm̈!̈','String comparison');
 
 my @array = $au->do(qw/foo bar baz/);
 my $test  = join ':', @array;
