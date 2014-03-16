@@ -10,5 +10,5 @@ $description = "A module that helps you ädd ümläüts tö ëvërÿthïng";
 
 $perl_ver = '5.006001';
 
-%requires = ( 'Test' => '0' );
+%requires = ( 'Test::More' => 0, 'Test::Simple' => '0' );
 
