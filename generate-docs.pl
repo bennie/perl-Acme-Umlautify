@@ -45,6 +45,40 @@ my $bugs = umlautify('	Bug tracking for this module:').' https://rt.cpan.org/Dis
 
 	'.umlautify('Source hosting:').' http://www.github.com/bennie/perl-ACME-Umlautify';
 
+my $term = umlautify('"Is the term "umlaut" correct? Doesn\'t that only refer to the letter U with the 
+two dots? Isn\'t the term \'diaeresis\' the correct name?"
+
+Yes. No. And possibly.
+
+First of all, these extra markings around letters are called diacritics. Each 
+"dot" of this specific diacritic is called a tittle. Two tittles applied to the
+top of a letter can be called an umlaut, a trema, or a diaeresis. (Sometimes 
+spelled diæresis or dieresis.)
+
+While symbolically, the umlaut and the diaeresis are represneted the same way, 
+their meaning is different. I quote from the Wikipedia article:
+').'
+=over
+'.umlautify('
+The diaeresis and the umlaut are diacritics marking two distinct phonological 
+phenomena. The diaeresis represents the phenomenon also known as diaeresis, or 
+hiatus, in which a vowel letter is not pronounced as part of a digraph or diphthong. 
+The umlaut, in contrast, indicates a sound shift. These two diacritics originated 
+separately; the diaeresis is considerably older. Nevertheless, in modern computer 
+systems using Unicode, the umlaut and diaeresis diacritics are identical: 
+').'〈ä〉 '.umlautify('(code point E416, 22810) represents both a-umlaut and a-diaeresis.
+').'
+=back
+'.umlautify('
+Should you choose to pronounce the words produced by this moudle as diaeresis, 
+you would be speaking nothing but silence. (hiatus) Consequently, I prefer to
+think of the output of this moudle as umlaut. 
+
+That way, you are speaking horribly mangled gibberish. And I get to use the word
+umlaut a lot in my documentation. You have to admit it\'s more fun to say.
+
+Umlaut. Umlaut. Umlaut. Umlaut. Umlaut.');
+
 my $version  = '	Acme::Umlautify vVERSIONTAG (DATETAG)';
 my $copy     = '	(c) 2004-YEARTAG, Phillip Pollard <bennie@cpan.org>';
 
@@ -64,7 +98,68 @@ my $author = umlautify('UTF implementation technique and suggestions from:').'
   Kristina Davis <krd@menagerie.tf>
   Chip Salzenberg <chip@pobox.com>';
 
+### POD
+
+print "Writing the POD\n";
+
+my $module = read_file('lib/Acme/Umlautify.pm');
+die "Can't find end token" unless $module =~ /^(.+__END__)/ms;
+$module = $1;
+
+open OUTFILE, '>', 'lib/Acme/Umlautify.pm';
+binmode OUTFILE, ':utf8';
+
+print OUTFILE $module;
+print OUTFILE "
+
+=encoding utf8
+
+=head1 NAME:
+
+Acme::Umlautify - $abstract
+
+=head1 " . umlautify('SYNOPSIS:') . "
+
+$synopsis
+
+=head1 " . umlautify('USAGE:') . "
+
+$usage
+
+=head1 ".umlautify('LATIN MODE:') . "
+
+$latin
+
+=head1 ".umlautify('BUGS AND SOURCE:') . "
+
+$bugs
+
+=head1 ".umlautify('TERMINOLOGY:') . "
+
+$term
+
+=head1 ".umlautify('VERSION:') . "
+
+$version
+
+=head1 ".umlautify('COPYRIGHT:') . "
+
+$copy
+
+=head1 LICENSE:
+
+$license
+
+=head1 ".umlautify('AUTHORSHIP:')."
+
+$author
+
+";
+close OUTFILE;
+
 ### README
+
+$term =~ s/=(over|back)//g;
 
 print "Writing README\n";
 
@@ -105,6 +200,12 @@ $usage
 $latin
 
 ================================================================================
+".umlautify('TERMINOLOGY:')."
+================================================================================
+
+$term
+
+================================================================================
 ".umlautify('VERSION:')."
 ================================================================================
 
@@ -129,58 +230,3 @@ $license
 $author
 ";
 close README;
-
-### POD
-
-print "Writing the POD\n";
-
-my $module = read_file('lib/Acme/Umlautify.pm');
-die "Can't find end token" unless $module =~ /^(.+__END__)/ms;
-$module = $1;
-
-open OUTFILE, '>', 'lib/Acme/Umlautify.pm';
-binmode OUTFILE, ':utf8';
-
-print OUTFILE $module;
-print OUTFILE "
-
-=encoding utf8
-
-=head1 NAME:
-
-Acme::Umlautify - $abstract
-
-=head1 " . umlautify('SYNOPSIS:') . "
-
-$synopsis
-
-=head1 " . umlautify('USAGE:') . "
-
-$usage
-
-=head1 ".umlautify('LATIN MODE:') . "
-
-$latin
-
-=head1 ".umlautify('BUGS AND SOURCE:') . "
-
-$bugs
-
-=head1 ".umlautify('VERSION:') . "
-
-$version
-
-=head1 ".umlautify('COPYRIGHT:') . "
-
-$copy
-
-=head1 LICENSE:
-
-$license
-
-=head1 ".umlautify('AUTHORSHIP:')."
-
-$author
-
-";
-close OUTFILE;

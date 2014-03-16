@@ -93,6 +93,42 @@ ä m̈ëẗḧöd̈ än̈d̈ äl̈s̈ö ëẍp̈ör̈ẗëd̈ äs̈uml
 
 	S̈öür̈c̈ë ḧös̈ẗïn̈g̈:̈ http://www.github.com/bennie/perl-ACME-Umlautify
 
+=head1 T̈ËR̈M̈ÏN̈ÖL̈ÖG̈Ÿ:̈
+
+"̈Ïs̈ ẗḧë ẗër̈m̈ "̈üm̈l̈äüẗ"̈ c̈ör̈r̈ëc̈ẗ?̈ D̈öës̈n̈'̈ẗ ẗḧäẗ ön̈l̈ÿ r̈ëf̈ër̈ ẗö ẗḧë l̈ëẗẗër̈ Ü ẅïẗḧ ẗḧë 
+ẗẅö d̈öẗs̈?̈ Ïs̈n̈'̈ẗ ẗḧë ẗër̈m̈ '̈d̈ïäër̈ës̈ïs̈'̈ ẗḧë c̈ör̈r̈ëc̈ẗ n̈äm̈ë?̈"̈
+
+Ÿës̈.̈ N̈ö.̈ Än̈d̈ p̈ös̈s̈ïb̈l̈ÿ.̈
+
+F̈ïr̈s̈ẗ öf̈ äl̈l̈,̈ ẗḧës̈ë ëẍẗr̈ä m̈är̈k̈ïn̈g̈s̈ är̈öün̈d̈ l̈ëẗẗër̈s̈ är̈ë c̈äl̈l̈ëd̈ d̈ïäc̈r̈ïẗïc̈s̈.̈ Ëäc̈ḧ 
+"̈d̈öẗ"̈ öf̈ ẗḧïs̈ s̈p̈ëc̈ïf̈ïc̈ d̈ïäc̈r̈ïẗïc̈ ïs̈ c̈äl̈l̈ëd̈ ä ẗïẗẗl̈ë.̈ T̈ẅö ẗïẗẗl̈ës̈ äp̈p̈l̈ïëd̈ ẗö ẗḧë
+ẗöp̈ öf̈ ä l̈ëẗẗër̈ c̈än̈ b̈ë c̈äl̈l̈ëd̈ än̈ üm̈l̈äüẗ,̈ ä ẗr̈ëm̈ä,̈ ör̈ ä d̈ïäër̈ës̈ïs̈.̈ (̈S̈öm̈ëẗïm̈ës̈ 
+s̈p̈ël̈l̈ëd̈ d̈ïÃ̈¦̈r̈ës̈ïs̈ ör̈ d̈ïër̈ës̈ïs̈.̈)̈
+
+Ẅḧïl̈ë s̈ÿm̈b̈öl̈ïc̈äl̈l̈ÿ,̈ ẗḧë üm̈l̈äüẗ än̈d̈ ẗḧë d̈ïäër̈ës̈ïs̈ är̈ë r̈ëp̈r̈ës̈n̈ëẗëd̈ ẗḧë s̈äm̈ë ẅäÿ,̈ 
+ẗḧëïr̈ m̈ëän̈ïn̈g̈ ïs̈ d̈ïf̈f̈ër̈ën̈ẗ.̈ Ï q̈üöẗë f̈r̈öm̈ ẗḧë Ẅïk̈ïp̈ëd̈ïä är̈ẗïc̈l̈ë:̈
+
+=over
+
+T̈ḧë d̈ïäër̈ës̈ïs̈ än̈d̈ ẗḧë üm̈l̈äüẗ är̈ë d̈ïäc̈r̈ïẗïc̈s̈ m̈är̈k̈ïn̈g̈ ẗẅö d̈ïs̈ẗïn̈c̈ẗ p̈ḧön̈öl̈ög̈ïc̈äl̈ 
+p̈ḧën̈öm̈ën̈ä.̈ T̈ḧë d̈ïäër̈ës̈ïs̈ r̈ëp̈r̈ës̈ën̈ẗs̈ ẗḧë p̈ḧën̈öm̈ën̈ön̈ äl̈s̈ö k̈n̈öẅn̈ äs̈ d̈ïäër̈ës̈ïs̈,̈ ör̈ 
+ḧïäẗüs̈,̈ ïn̈ ẅḧïc̈ḧ ä v̈öẅël̈ l̈ëẗẗër̈ ïs̈ n̈öẗ p̈r̈ön̈öün̈c̈ëd̈ äs̈ p̈är̈ẗ öf̈ ä d̈ïg̈r̈äp̈ḧ ör̈ d̈ïp̈ḧẗḧön̈g̈.̈ 
+T̈ḧë üm̈l̈äüẗ,̈ ïn̈ c̈ön̈ẗr̈äs̈ẗ,̈ ïn̈d̈ïc̈äẗës̈ ä s̈öün̈d̈ s̈ḧïf̈ẗ.̈ T̈ḧës̈ë ẗẅö d̈ïäc̈r̈ïẗïc̈s̈ ör̈ïg̈ïn̈äẗëd̈ 
+s̈ëp̈är̈äẗël̈ÿ;̈ ẗḧë d̈ïäër̈ës̈ïs̈ ïs̈ c̈ön̈s̈ïd̈ër̈äb̈l̈ÿ öl̈d̈ër̈.̈ N̈ëv̈ër̈ẗḧël̈ës̈s̈,̈ ïn̈ m̈öd̈ër̈n̈ c̈öm̈p̈üẗër̈ 
+s̈ÿs̈ẗëm̈s̈ üs̈ïn̈g̈ Ün̈ïc̈öd̈ë,̈ ẗḧë üm̈l̈äüẗ än̈d̈ d̈ïäër̈ës̈ïs̈ d̈ïäc̈r̈ïẗïc̈s̈ är̈ë ïd̈ën̈ẗïc̈äl̈:̈ 
+â©Ã¤âª (̈c̈öd̈ë p̈öïn̈ẗ Ë4̈1̈6̈,̈ 2̈2̈8̈1̈0̈)̈ r̈ëp̈r̈ës̈ën̈ẗs̈ b̈öẗḧ ä-̈üm̈l̈äüẗ än̈d̈ ä-̈d̈ïäër̈ës̈ïs̈.̈
+
+=back
+
+S̈ḧöül̈d̈ ÿöü c̈ḧöös̈ë ẗö p̈r̈ön̈öün̈c̈ë ẗḧë ẅör̈d̈s̈ p̈r̈öd̈üc̈ëd̈ b̈ÿ ẗḧïs̈ m̈öüd̈l̈ë äs̈ d̈ïäër̈ës̈ïs̈,̈ 
+ÿöü ẅöül̈d̈ b̈ë s̈p̈ëäk̈ïn̈g̈ n̈öẗḧïn̈g̈ b̈üẗ s̈ïl̈ën̈c̈ë.̈ (̈ḧïäẗüs̈)̈ C̈ön̈s̈ëq̈üën̈ẗl̈ÿ,̈ Ï p̈r̈ëf̈ër̈ ẗö
+ẗḧïn̈k̈ öf̈ ẗḧë öüẗp̈üẗ öf̈ ẗḧïs̈ m̈öüd̈l̈ë äs̈ üm̈l̈äüẗ.̈ 
+
+T̈ḧäẗ ẅäÿ,̈ ÿöü är̈ë s̈p̈ëäk̈ïn̈g̈ ḧör̈r̈ïb̈l̈ÿ m̈än̈g̈l̈ëd̈ g̈ïb̈b̈ër̈ïs̈ḧ.̈ Än̈d̈ Ï g̈ëẗ ẗö üs̈ë ẗḧë ẅör̈d̈
+üm̈l̈äüẗ ä l̈öẗ ïn̈ m̈ÿ d̈öc̈üm̈ën̈ẗäẗïön̈.̈ Ÿöü ḧäv̈ë ẗö äd̈m̈ïẗ ïẗ'̈s̈ m̈ör̈ë f̈ün̈ ẗö s̈äÿ.̈
+
+Üm̈l̈äüẗ.̈ Üm̈l̈äüẗ.̈ Üm̈l̈äüẗ.̈ Üm̈l̈äüẗ.̈ Üm̈l̈äüẗ.̈
+
 =head1 V̈ËR̈S̈ÏÖN̈:̈
 
 	Acme::Umlautify vVERSIONTAG (DATETAG)
