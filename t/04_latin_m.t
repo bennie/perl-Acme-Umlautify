@@ -1,4 +1,4 @@
-use Acme::Umlautify 'umlautify';
+use Acme::Umlautify 'umlautify_latin';
 use Test::Simple tests => 3;
 use strict;
 
