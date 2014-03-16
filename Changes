@@ -10,6 +10,8 @@ VERSIONTAG  DATETAG
 		RT #93530 which suggested a UTF solution to the lack of
 		umlauts for Latin lower-case y.
 
+	Added a terminology section to the documentation.
+
 1.06  2014/03/03
 
 	Updated POD and README text
