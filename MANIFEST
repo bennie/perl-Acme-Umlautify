@@ -4,7 +4,7 @@ Makefile.PL
 MANIFEST
 META.json
 META.yml
-README
+README.md
 lib/Acme/Umlautify.pm
 t/00_pod.t
 t/01_load.t
